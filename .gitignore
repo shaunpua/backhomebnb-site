@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Build info
+tsconfig.tsbuildinfo
+
+# Dev files — not needed in repo
+samplereview.html
+unit.txt
+
+# OS / WSL artifacts
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+*:Zone.Identifier
+*:sec.endpointdlp

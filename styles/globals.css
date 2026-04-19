@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Airbnb embed — override fixed 450px width to fill card */
+.airbnb-embed-wrapper { overflow: hidden; width: 100%; }
+.airbnb-embed-frame { width: 100% !important; max-width: 100% !important; }
+.airbnb-embed-frame iframe { width: 100% !important; max-width: 100% !important; }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-gray-800 antialiased;
+    background-color: #F7F5F0;
+  }
+}
+
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-green text-white font-semibold px-6 py-3 rounded-xl hover:bg-brand-green-mid transition-colors;
+  }
+  .btn-gold {
+    @apply bg-brand-gold text-white font-semibold px-6 py-3 rounded-xl hover:bg-brand-gold-light transition-colors;
+  }
+  .section-title {
+    @apply text-3xl font-display font-bold text-brand-green mb-3;
+  }
+}

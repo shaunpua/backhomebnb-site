@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         .from('airbnb_bookings')
         .select('reservation_id')
         .eq('property_id', unit.id)
-        .neq('status', 'cancelled')
+        .neq('status', 'cancelled')   // includes: upcoming, in_progress, complete, blocked
         .lt('check_in', check_out)
         .gt('check_out', check_in)
         .limit(1);

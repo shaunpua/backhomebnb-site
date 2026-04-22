@@ -59,6 +59,7 @@ const LD_JSON = {
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const advance = useCallback(() => {
     setCurrent((prev) => (prev + 1) % SLIDES.length);
@@ -69,6 +70,23 @@ export default function Home() {
     const timer = setInterval(advance, 5000);
     return () => clearInterval(timer);
   }, [paused, advance]);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    setTouchStartX(e.touches[0].clientX);
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (touchStartX === null) return;
+    const delta = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      setCurrent((prev) =>
+        delta > 0 ? (prev + 1) % SLIDES.length : (prev - 1 + SLIDES.length) % SLIDES.length
+      );
+      setPaused(true);
+      setTimeout(() => setPaused(false), 8000);
+    }
+    setTouchStartX(null);
+  }
 
   return (
     <>
@@ -108,6 +126,8 @@ export default function Home() {
         <section
           className="relative min-h-[320px] md:min-h-[420px]"
           style={{ height: 'clamp(320px, 58vh, 700px)', touchAction: 'pan-y' }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {/* Image slides — clipped to section bounds, not overflowing */}
           <div className="absolute inset-0 overflow-hidden">
@@ -187,7 +207,6 @@ export default function Home() {
 
           {/* Booking bar — desktop only, floats in lower carousel */}
           <div
-            id="availability"
             className="hidden md:block absolute top-[74%] left-0 right-0 z-20 px-6 -translate-y-1/2"
           >
             <div className="max-w-2xl mx-auto">

@@ -141,12 +141,7 @@ export default function HeroBooking() {
               <div className="min-w-0">
                 <span className="font-semibold text-sm text-gray-900 block truncate">{r.name}</span>
                 {r.available ? (
-                  <span className="text-xs text-green-600">
-                    Available · ₱{r.basePrice.toLocaleString()}/night
-                    {nights > 1 && (
-                      <span className="text-gray-400"> · ₱{(r.basePrice * nights).toLocaleString()} total</span>
-                    )}
-                  </span>
+                  <span className="text-xs text-green-600">Available for these dates</span>
                 ) : (
                   <span className="text-xs text-gray-400">Not available for these dates</span>
                 )}

@@ -23,7 +23,7 @@ export default function Header({ transparent = false }: Props) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         solid
           ? 'bg-white border-b border-gray-100 shadow-sm'
-          : 'bg-transparent'
+          : 'bg-brand-green/35 backdrop-blur-sm border-b border-white/10'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">

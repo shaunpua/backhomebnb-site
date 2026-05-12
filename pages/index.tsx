@@ -45,15 +45,15 @@ const FEATURES = [
   {
     icon: '🚗',
     title: 'Parking Available',
-    desc: 'Overnight parking is available on request for an additional fee. Message us before your stay to reserve a slot.',
+    desc: 'Overnight parking is available on request for an additional fee, subject to availability. Message us before your stay to reserve a slot.',
   },
 ];
 
 const NEARBY = [
-  { label: 'Uptown Mall', desc: 'Shopping & dining', dist: '5 min' },
-  { label: 'Landers Superstore', desc: 'Grocery', dist: '8 min' },
-  { label: 'Mitsukoshi BGC', desc: 'Upscale shopping', dist: '10 min' },
-  { label: 'Uptown Parade', desc: 'Nightlife & restaurants', dist: '5 min' },
+  { label: 'Uptown Mall', desc: 'Shopping & dining' },
+  { label: 'Landers Superstore', desc: 'Grocery' },
+  { label: 'Mitsukoshi BGC', desc: 'Upscale shopping' },
+  { label: 'Uptown Parade', desc: 'Nightlife & restaurants' },
 ];
 
 const LD_JSON = {
@@ -302,7 +302,6 @@ export default function Home() {
                         <span className="font-medium text-gray-700">{item.label}</span>
                         <span className="text-gray-400 text-xs ml-2">{item.desc}</span>
                       </div>
-                      <span className="text-gray-400 text-xs ml-auto">{item.dist}</span>
                     </li>
                   ))}
                 </ul>

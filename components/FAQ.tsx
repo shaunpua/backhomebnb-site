@@ -27,6 +27,10 @@ const FAQ_ITEMS = [
     a: 'Yes, mid-stay cleaning is available on request for an additional fee. Just message us to arrange.',
   },
   {
+    q: 'Can I bring guests over?',
+    a: 'Yes, you are welcome to have visitors. However, the maximum occupancy is 3 adults in the unit at any time. We will also need their valid IDs endorsed to us ahead of time.',
+  },
+  {
     q: 'Is there a check-in lounge?',
     a: 'Our check-in lounge is available 24/7, so early arrivals and late check-outs are never a problem.',
   },

@@ -56,15 +56,15 @@ export default function HeroBooking() {
 
   return (
     <div className="w-full relative">
-      {/* Booking bar */}
       <div className="bg-white rounded-2xl shadow-2xl px-3 py-3 md:px-6 md:py-5">
         <div className="grid grid-cols-2 md:flex md:flex-row gap-2 md:gap-3 md:items-end">
-          {/* Unit — full width on mobile */}
+          {/* Unit */}
           <div className="col-span-2 md:flex-1 md:min-w-0">
-            <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">
+            <label htmlFor="unit-select" className="block text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1">
               Unit
             </label>
             <select
+              id="unit-select"
               value={unitId}
               onChange={(e) => { setUnitId(e.target.value); setResults(null); }}
               className="w-full border border-gray-200 rounded-lg px-2.5 py-2 text-xs text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-green/30 h-9"
@@ -80,10 +80,11 @@ export default function HeroBooking() {
 
           {/* Check-in */}
           <div className="md:flex-1 md:min-w-0">
-            <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">
+            <label htmlFor="check-in-date" className="block text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1">
               Check-in
             </label>
             <input
+              id="check-in-date"
               type="date"
               value={checkIn}
               min={todayStr()}
@@ -94,10 +95,11 @@ export default function HeroBooking() {
 
           {/* Check-out */}
           <div className="md:flex-1 md:min-w-0">
-            <label className="block text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">
+            <label htmlFor="check-out-date" className="block text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1">
               Check-out
             </label>
             <input
+              id="check-out-date"
               type="date"
               value={checkOut}
               min={checkIn || todayStr()}
@@ -119,7 +121,7 @@ export default function HeroBooking() {
         {error && <p className="text-red-500 text-xs mt-2 ml-1">{error}</p>}
       </div>
 
-      {/* Results — floats below the form, does not push page content */}
+      {/* Results */}
       {results && (
         <div className="absolute top-full left-0 right-0 z-50 mt-2 bg-white rounded-2xl shadow-2xl px-5 py-4 space-y-2">
           <div className="flex items-center justify-between mb-1">
@@ -128,8 +130,8 @@ export default function HeroBooking() {
             </span>
             <button
               onClick={() => setResults(null)}
-              className="text-gray-400 hover:text-gray-600 transition-colors p-1 -mr-1 rounded-full hover:bg-gray-100"
               aria-label="Close results"
+              className="text-gray-400 hover:text-gray-600 transition-colors p-1 -mr-1 rounded-full hover:bg-gray-100"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -170,7 +172,7 @@ export default function HeroBooking() {
                       href="https://m.me/61587232237194"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-semibold text-gray-500 border border-gray-200 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap"
+                      className="text-xs font-semibold text-gray-600 border border-gray-300 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap"
                     >
                       💬 Message Us
                     </a>
@@ -179,11 +181,6 @@ export default function HeroBooking() {
               </div>
             </div>
           ))}
-          {results.some((r) => !r.available) && results.some((r) => r.available) && (
-            <p className="text-xs text-gray-400 border-t border-gray-50 pt-2">
-              {results.filter((r) => !r.available).map((r) => r.tag).join(', ')} not available for these dates.
-            </p>
-          )}
         </div>
       )}
     </div>

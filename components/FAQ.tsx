@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 const FAQ_ITEMS = [
   {
     q: 'How does check-in work?',
-    a: 'Self check-in via lockbox — your unique door code is sent on the morning of your check-in date. No need to coordinate with anyone.',
+    a: 'Self check-in via lockbox — your unique door code is sent shortly before your check-in time. No need to coordinate with anyone.',
   },
   {
     q: 'Is parking available?',
@@ -37,10 +38,12 @@ export default function FAQ() {
   return (
     <section className="relative py-20 px-4 overflow-hidden">
       {/* Background image */}
-      <img
+      <Image
         src="/images/IMG_1550.JPG"
-        alt="BackHome BGC interior"
-        className="absolute inset-0 w-full h-full object-cover"
+        alt=""
+        fill
+        className="object-cover"
+        sizes="100vw"
         loading="lazy"
       />
       {/* Dark overlay */}
@@ -61,6 +64,7 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
                 className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
               >
                 <span className="text-white font-semibold text-sm">{item.q}</span>
@@ -69,6 +73,7 @@ export default function FAQ() {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>

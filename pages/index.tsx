@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState, useCallback } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -29,12 +30,12 @@ const FEATURES = [
   {
     icon: '🏙️',
     title: 'Prime BGC Location',
-    desc: 'Steps from Uptown Mall, Mitsukoshi BGC, Uptown Parade, and Landers. The best dining, nightlife, and shopping in Metro Manila — all walkable.',
+    desc: 'Steps from Uptown Mall, Mitsukoshi BGC, Uptown Parade, and Landers. The best dining, nightlife, and shopping in Metro Manila, all walkable.',
   },
   {
     icon: '🏠',
     title: 'Full Home Comforts',
-    desc: 'Fully equipped kitchen, in-unit washer and dryer, Smart TV, and high-speed WiFi. Live like a local — not a hotel guest.',
+    desc: 'Fully equipped kitchen, in-unit washer and dryer, Smart TV, and high-speed WiFi. Live like a local, not a hotel guest.',
   },
   {
     icon: '🔒',
@@ -49,10 +50,10 @@ const FEATURES = [
 ];
 
 const NEARBY = [
-  { label: 'Uptown Mall', desc: 'Shopping & dining', dist: '5 min walk' },
-  { label: 'Landers Superstore', desc: 'Grocery', dist: '8 min walk' },
-  { label: 'Mitsukoshi BGC', desc: 'Upscale shopping', dist: '10 min walk' },
-  { label: 'Uptown Parade', desc: 'Nightlife & restaurants', dist: '5 min walk' },
+  { label: 'Uptown Mall', desc: 'Shopping & dining', dist: '5 min' },
+  { label: 'Landers Superstore', desc: 'Grocery', dist: '8 min' },
+  { label: 'Mitsukoshi BGC', desc: 'Upscale shopping', dist: '10 min' },
+  { label: 'Uptown Parade', desc: 'Nightlife & restaurants', dist: '5 min' },
 ];
 
 const LD_JSON = {
@@ -163,10 +164,13 @@ export default function Home() {
                 className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`}
                 aria-hidden={i !== current}
               >
-                <img
+                <Image
                   src={slide.src}
                   alt={slide.headline}
-                  className="w-full h-full object-cover object-center"
+                  fill
+                  className="object-cover object-center"
+                  sizes="100vw"
+                  priority={i === 0}
                   loading={i === 0 ? 'eager' : 'lazy'}
                 />
               </div>
@@ -321,10 +325,13 @@ export default function Home() {
 
         {/* ── CTA ─────────────────────────────────────────────────── */}
         <section className="relative py-24 px-4 text-white text-center overflow-hidden">
-          <img
+          <Image
             src="/images/AFO08136.jpeg"
             alt="BackHome BGC bedroom"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-brand-green/80" />
           <div className="relative z-10 max-w-2xl mx-auto">

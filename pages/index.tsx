@@ -124,6 +124,7 @@ export default function Home() {
           On 1080p: 58vh = ~626px. On 900px screen: ~522px. On 667px phone: ~387px.
         */}
         <section
+          id="availability"
           className="relative min-h-[320px] md:min-h-[420px]"
           style={{ height: 'clamp(320px, 58vh, 700px)', touchAction: 'pan-y' }}
           onTouchStart={handleTouchStart}
@@ -217,7 +218,7 @@ export default function Home() {
 
 
         {/* Mobile availability form — shown below carousel on small screens */}
-        <div id="availability" className="md:hidden bg-brand-cream px-4 pt-4 pb-2">
+        <div className="md:hidden bg-brand-cream px-4 pt-4 pb-2">
           <HeroBooking />
         </div>
 
@@ -299,19 +300,19 @@ export default function Home() {
             <img src="/logo.svg" alt="BackHome" className="h-16 w-16 mx-auto mb-5 rounded-full shadow-lg" />
             <h2 className="text-3xl font-display font-bold mb-4">Ready to Book Your Stay?</h2>
             <p className="text-green-200 mb-8 text-sm leading-relaxed">
-              Check availability above and book directly through Airbnb with your dates pre-filled. Have questions? Message us on WhatsApp — we reply fast.
+              Check availability above and book directly through Airbnb with your dates pre-filled. Have questions? Message us on Facebook — we reply fast.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#availability" className="btn-gold">
                 Check Availability
               </a>
               <a
-                href="https://wa.me/639175726782"
+                href="https://m.me/61587232237194"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/15 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/25 transition-colors"
               >
-                💬 WhatsApp Us
+                💬 Message Us on FB
               </a>
             </div>
           </div>

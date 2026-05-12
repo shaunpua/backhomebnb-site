@@ -164,7 +164,7 @@ export const UNITS: Unit[] = [
     ],
   },
   {
-    id: 'our-new-unit',
+    id: 'our22enw',
     slug: 'bgc-studio',
     tag: 'BGC Studio',
     name: 'Studio · BGC',

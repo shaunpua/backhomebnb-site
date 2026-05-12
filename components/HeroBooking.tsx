@@ -72,7 +72,7 @@ export default function HeroBooking() {
               <option value="">Any Available Unit</option>
               {UNITS.map((u) => (
                 <option key={u.id} value={u.id}>
-                  {u.tag} · {u.name.split('·')[1]?.trim()}
+                  {u.name}
                 </option>
               ))}
             </select>

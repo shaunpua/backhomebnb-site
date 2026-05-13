@@ -199,6 +199,42 @@ export const UNITS: Unit[] = [
       'Full kitchen & laundry',
     ],
   },
+  {
+    id: 'our-serene',
+    slug: 'serene-bgc',
+    tag: 'BGC',
+    label: 'Serene',
+    name: 'One Bedroom | Serene | BGC',
+    fullName: 'BackHome BGC — Serene One Bedroom in Uptown BGC',
+    listingId: '1684589779400906746',
+    airbnbUrl: 'https://www.airbnb.com/rooms/1684589779400906746',
+    location: 'Uptown BGC, Taguig City',
+    neighborhood: 'Uptown Bonifacio, BGC',
+    shortDesc: 'Serene and cozy one-bedroom studio in Uptown BGC with 350Mbps WiFi.',
+    description:
+      'A serene and cozy studio in the heart of Uptown BGC. High-speed 350Mbps WiFi, fully equipped kitchen, in-unit washer and dryer — perfect for both short stays and remote work.',
+    bedrooms: 0,
+    bathrooms: 1,
+    maxGuests: 2,
+    basePrice: 2800,
+    amenities: [
+      '350Mbps WiFi',
+      'Air Conditioning',
+      'Full Kitchen',
+      'Washer & Dryer',
+      'Smart TV',
+      'Swimming Pool',
+      'Concierge',
+      '24/7 Security',
+      'Paid Parking Available',
+    ],
+    highlights: [
+      'Serene & Cozy',
+      '350Mbps High-Speed WiFi',
+      'Steps from Uptown Mall',
+      'Pool Access (Tue–Fri)',
+    ],
+  },
 ];
 
 export function getUnitBySlug(slug: string): Unit | undefined {

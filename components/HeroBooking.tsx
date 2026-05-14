@@ -11,17 +11,24 @@ interface Result {
   airbnbUrl: string;
 }
 
+const MIN_NIGHTS = 2;
+
 function todayStr() {
   return new Date().toISOString().split('T')[0];
 }
-function tomorrowStr() {
-  return new Date(Date.now() + 86400000).toISOString().split('T')[0];
+function addDays(date: string, n: number): string {
+  const d = new Date(date + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().split('T')[0];
+}
+function defaultCheckOut() {
+  return addDays(todayStr(), MIN_NIGHTS);
 }
 
 export default function HeroBooking() {
   const [unitId, setUnitId] = useState('');
   const [checkIn, setCheckIn] = useState(todayStr);
-  const [checkOut, setCheckOut] = useState(tomorrowStr);
+  const [checkOut, setCheckOut] = useState(defaultCheckOut);
   const [results, setResults] = useState<Result[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -34,6 +41,10 @@ export default function HeroBooking() {
   async function check() {
     if (!checkIn || !checkOut || checkIn >= checkOut) {
       setError('Please select a valid date range.');
+      return;
+    }
+    if (nights < MIN_NIGHTS) {
+      setError(`Minimum stay is ${MIN_NIGHTS} nights.`);
       return;
     }
     setError('');
@@ -88,7 +99,14 @@ export default function HeroBooking() {
               type="date"
               value={checkIn}
               min={todayStr()}
-              onChange={(e) => { setCheckIn(e.target.value); setResults(null); }}
+              onChange={(e) => {
+                const newIn = e.target.value;
+                setCheckIn(newIn);
+                setResults(null);
+                if (newIn && (!checkOut || checkOut < addDays(newIn, MIN_NIGHTS))) {
+                  setCheckOut(addDays(newIn, MIN_NIGHTS));
+                }
+              }}
               className="w-full border border-gray-200 rounded-lg px-2.5 py-2 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-green/30 h-9"
             />
           </div>
@@ -102,7 +120,7 @@ export default function HeroBooking() {
               id="check-out-date"
               type="date"
               value={checkOut}
-              min={checkIn || todayStr()}
+              min={checkIn ? addDays(checkIn, MIN_NIGHTS) : addDays(todayStr(), MIN_NIGHTS)}
               onChange={(e) => { setCheckOut(e.target.value); setResults(null); }}
               className="w-full border border-gray-200 rounded-lg px-2.5 py-2 text-xs text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-green/30 h-9"
             />

@@ -200,7 +200,7 @@ export const UNITS: Unit[] = [
     ],
   },
   {
-    id: 'our-serene',
+    id: '21e-nw',
     slug: 'serene-bgc',
     tag: 'BGC',
     label: 'Serene',

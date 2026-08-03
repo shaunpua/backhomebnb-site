@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { UNITS } from '../lib/units';
 
-const LISTING_EXTRAS: Record<string, { stars: number; photo: string; beds: string }> = {
+// `stars` is omitted for listings too new to have a rating — the card shows a "New" pill instead.
+const LISTING_EXTRAS: Record<string, { stars?: number; photo: string; beds: string }> = {
   '1620439741705365914': {
     stars: 5.0,
     photo: 'https://a0.muscache.com/im/pictures/hosting/Hosting-1620439741705365914/original/0a72b208-e74b-4a0a-a841-268c234452ca.png?im_w=720',
@@ -31,6 +32,10 @@ const LISTING_EXTRAS: Record<string, { stars: number; photo: string; beds: strin
     stars: 5.0,
     photo: 'https://a0.muscache.com/im/pictures/hosting/Hosting-1684589779400906746/original/836bcb8e-fdac-4392-a7e7-6e2d0c4b073f.jpeg?im_w=720',
     beds: '1 bed · 350Mbps WiFi',
+  },
+  '1743398897271425366': {
+    photo: 'https://a0.muscache.com/im/pictures/hosting/Hosting-1743398897271425366/original/0ebd72ed-33e3-4e2e-b3d8-a5d6a5f07693.jpeg?im_w=720',
+    beds: '2 beds · 350Mbps WiFi',
   },
 };
 
@@ -75,10 +80,18 @@ export default function AirbnbUnits() {
                       {unit.label} · Uptown BGC, Taguig
                     </p>
                     <div className="flex items-center gap-0.5 shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-brand-gold fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
-                      <span className="text-xs font-semibold text-gray-800">{extras.stars.toFixed(2)}</span>
+                      {extras.stars ? (
+                        <>
+                          <svg className="w-3 h-3 text-brand-gold fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                          </svg>
+                          <span className="text-xs font-semibold text-gray-800">{extras.stars.toFixed(2)}</span>
+                        </>
+                      ) : (
+                        <span className="text-[10px] font-bold text-gray-800 border border-gray-300 rounded-full px-2 py-0.5">
+                          New
+                        </span>
+                      )}
                     </div>
                   </div>
                   <p className="text-gray-500 text-xs mb-2.5">{extras.beds}</p>

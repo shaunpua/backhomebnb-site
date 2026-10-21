@@ -271,6 +271,42 @@ export const UNITS: Unit[] = [
       'Pool Access (Tue–Fri)',
     ],
   },
+  {
+    id: '21k-nw',
+    slug: 'vibrant-bgc',
+    tag: 'North Wing',
+    label: 'Vibrant',
+    name: 'One Bedroom | Vibrant | BGC',
+    fullName: 'BackHome BGC — Vibrant One Bedroom in Uptown BGC',
+    listingId: '1792583195180802675',
+    airbnbUrl: 'https://www.airbnb.com/rooms/1792583195180802675',
+    location: 'Uptown BGC, Taguig City',
+    neighborhood: 'Uptown Bonifacio, BGC',
+    shortDesc: 'Cozy and vibrant one-bedroom in Uptown BGC with 350Mbps WiFi, a 2-minute walk to Uptown Mall.',
+    description:
+      'A modern, cozy one-bedroom in One Uptown Residence — perfect for couples, solo travelers, and professionals. Enjoy 350+ Mbps WiFi, a Smart TV with Netflix, a dedicated workspace, aircon in both rooms, a full kitchen and an in-unit washer-dryer. Self check-in, and just a 2-minute walk to Mitsukoshi and Uptown Mall, with Uptown Parade nightlife nearby.',
+    bedrooms: 1,
+    bathrooms: 1,
+    maxGuests: 3,
+    basePrice: 2800,
+    amenities: [
+      '350Mbps WiFi',
+      'Air Conditioning',
+      'Full Kitchen',
+      'Washer & Dryer',
+      'Smart TV with Netflix',
+      'Dedicated Workspace',
+      'Swimming Pool',
+      'Self Check-in',
+      '24/7 Security',
+    ],
+    highlights: [
+      'Cozy & Vibrant',
+      '350Mbps High-Speed WiFi',
+      '2-min walk to Uptown Mall',
+      'Self check-in',
+    ],
+  },
 ];
 
 export function getUnitBySlug(slug: string): Unit | undefined {

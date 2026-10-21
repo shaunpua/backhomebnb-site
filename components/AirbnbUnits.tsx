@@ -37,6 +37,10 @@ const LISTING_EXTRAS: Record<string, { stars?: number; photo: string; beds: stri
     photo: 'https://a0.muscache.com/im/pictures/hosting/Hosting-1743398897271425366/original/0ebd72ed-33e3-4e2e-b3d8-a5d6a5f07693.jpeg?im_w=720',
     beds: '2 beds · 350Mbps WiFi',
   },
+  '1792583195180802675': {
+    photo: 'https://a0.muscache.com/im/pictures/hosting/Hosting-1792583195180802675/original/deacd072-c71a-48c8-a325-05dfc15b70fd.jpeg?im_w=720',
+    beds: '2 beds · 350Mbps WiFi',
+  },
 };
 
 export default function AirbnbUnits() {
